@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox • Zing Social</title>
+    <style>
+        body { background-color: #fff; margin: 0; display: flex; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto; height: 100vh; overflow: hidden; }
+        
+        /* Sidebar (Same as Home) */
+        .sidebar { width: 245px; border-right: 1px solid #dbdbdb; padding: 20px 12px; display: flex; flex-direction: column; }
+        .logo { width: 103px; margin: 20px 0 35px 12px; }
+        .nav-item { display: flex; align-items: center; gap: 16px; padding: 12px; margin: 4px 0; border-radius: 8px; cursor: pointer; text-decoration: none; color: #000; }
+        .nav-item:hover { background-color: #f2f2f2; }
+
+        /* Messaging Container */
+        .messenger-container { flex-grow: 1; display: flex; }
+        
+        /* Chat List (Left) */
+        .chat-list { width: 350px; border-right: 1px solid #dbdbdb; overflow-y: auto; }
+        .chat-header { padding: 20px; font-size: 20px; font-weight: 700; border-bottom: 1px solid #dbdbdb; }
+        .user-row { display: flex; align-items: center; padding: 15px 20px; gap: 12px; cursor: pointer; }
+        .user-row:hover { background-color: #fafafa; }
+        .avatar { width: 56px; height: 56px; background: #efefef; border-radius: 50%; border: 1px solid #dbdbdb; }
+        .user-info { font-size: 14px; }
+        .user-name { font-weight: 600; }
+        .last-msg { color: #8e8e8e; font-size: 12px; }
+
+        /* Active Chat (Right) */
+        .chat-view { flex-grow: 1; display: flex; flex-direction: column; background-color: #fff; }
+        .chat-view-header { padding: 15px 20px; border-bottom: 1px solid #dbdbdb; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+        .messages-area { flex-grow: 1; padding: 20px; background-color: #fff; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; }
+        
+        /* Message Bubbles */
+        .msg-bubble { max-width: 60%; padding: 10px 15px; border-radius: 20px; font-size: 14px; line-height: 18px; }
+        .sent { align-self: flex-end; background-color: #efefef; color: #000; }
+        .received { align-self: flex-start; border: 1px solid #dbdbdb; color: #000; }
+
+        /* Input Area */
+        .input-area { padding: 20px; border-top: 1px solid #dbdbdb; }
+        .message-input-wrapper { border: 1px solid #dbdbdb; border-radius: 25px; padding: 10px 20px; display: flex; align-items: center; }
+        .message-input-wrapper input { flex-grow: 1; border: none; outline: none; font-size: 14px; }
+        .send-btn { color: #0095f6; font-weight: 600; cursor: pointer; margin-left: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <img src="{% static 'images/logo.png' %}" alt="Zing" class="logo">
+        <a href="/" class="nav-item">🏠 Home</a>
+        <div class="nav-item">🎬 Reels</div>
+        <a href="/messages" class="nav-item"><b>📩 Messages</b></a>
+        <div class="nav-item">👤 Profile</div>
+    </div>
+
+    <div class="messenger-container">
+        <div class="chat-list">
+            <div class="chat-header">Messages</div>
+            <div class="user-row">
+                <div class="avatar"></div>
+                <div class="user-info">
+                    <div class="user-name">CodeAlpha_Team</div>
+                    <div class="last-msg">Sent a reel 2h ago</div>
+                </div>
+            </div>
+            </div>
+
+        <div class="chat-view">
+            <div class="chat-view-header">
+                <div class="avatar" style="width: 24px; height: 24px;"></div>
+                <span>CodeAlpha_Team</span>
+            </div>
+
+            <div class="messages-area">
+                <div class="msg-bubble received">Hey! How is the Zing Social project coming along?</div>
+                <div class="msg-bubble sent">It's going great! Just finished the interactive flow.</div>
+                <div class="msg-bubble received">Awesome. Can't wait to see the video! 🔥</div>
+            </div>
+
+            <div class="input-area">
+                <div class="message-input-wrapper">
+                    <input type="text" placeholder="Message...">
+                    <span class="send-btn">Send</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
